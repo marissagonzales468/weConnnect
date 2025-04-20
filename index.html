@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>weConnect</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background-color: #f1f1f1;
+      padding: 10px;
+      justify-content: center;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    nav button.active {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="weConnect Logo" class="logo" />
+    <div id="google_translate_element"></div>
+  </header>
+
+  <nav>
+    <button class="tab-button active" onclick="openTab('emergency')">Emergency</button>
+    <button class="tab-button" onclick="openTab('food')">Food & Housing</button>
+    <button class="tab-button" onclick="openTab('medical')">Medical & Transport</button>
+    <button class="tab-button" onclick="openTab('legal')">Legal</button>
+    <button class="tab-button" onclick="openTab('mental-health')">Mental Health</button>
+    <button class="tab-button" onclick="openTab('veteran')">Veterans</button>
+    <button class="tab-button" onclick="openTab('shelters')">Shelters</button>
+    <button class="tab-button" onclick="openTab('rehab')">Rehab</button>
+    <button class="tab-button" onclick="openTab('medical-centers')">Medical Centers</button>
+  </nav>
+
+  <main>
+    <section id="emergency" class="card tab-content active">
+      <h2>Emergency Resources</h2>
+      <ul>
+        <li>24/7 Crisis Hotline: 800-123-4567</li>
+        <li>Stockton Shelter: 123 Safe St.</li>
+      </ul>
+    </section>
+
+    <section id="food" class="card tab-content">
+      <h2>Food & Housing</h2>
+      <ul>
+        <li>Food Bank: 456 Hope Ave.</li>
+        <li>Night Shelter Beds Available: Call (209) 555-0000</li>
+      </ul>
+    </section>
+
+    <section id="medical" class="card tab-content">
+      <h2>Medical & Transportation</h2>
+      <ul>
+        <li>Free Clinic: Open M–F, 8AM–5PM</li>
+        <li>Transit Vouchers: Apply through shelters</li>
+      </ul>
+    </section>
+
+    <section id="legal" class="card tab-content">
+      <h2>Legal Resources</h2>
+      <ul>
+        <li>San Joaquin County Veterans Service Office – (209) 468-2916</li>
+        <li>Community Legal Services – 501 W. Weber Ave – (209) 948-0121</li>
+        <li>California Rural Legal Assistance – 145 E Weber Ave – (209) 946-0605</li>
+      </ul>
+    </section>
+
+    <section id="mental-health" class="card tab-content">
+      <h2>Mental Health Services</h2>
+      <ul>
+        <li>Community Medical Centers – 423 S. San Joaquin St – (209) 954-7700</li>
+        <li>San Joaquin Behavioral Health – 1212 N California St – (209) 468-8686</li>
+        <li>Stockton VA Clinic – 7777 South Freedom Rd – (209) 946-3400</li>
+      </ul>
+    </section>
+
+    <section id="veteran" class="card tab-content">
+      <h2>Veteran Support</h2>
+      <ul>
+        <li>Catholic Charities VETFAM – 804 N. Hunter St – (209) 444-5935</li>
+        <li>Grants Veterans House – (209) 688-7287</li>
+        <li>San Joaquin Valley Veterans – 2291 W. March Ln – (209) 662-6073</li>
+      </ul>
+    </section>
+
+    <section id="shelters" class="card tab-content">
+      <h2>Shelters</h2>
+      <ul>
+        <li>The Salvation Army – 525 W. Weber Ave – (209) 948-8955</li>
+        <li>Stockton Shelter for the Homeless – 411 S. Harrison St – (209) 465-3612</li>
+        <li>Gospel Center Rescue Mission – 445 S. San Joaquin St – (209) 466-2138</li>
+      </ul>
+    </section>
+
+    <section id="rehab" class="card tab-content">
+      <h2>Rehabilitation Centers</h2>
+      <ul>
+        <li>Gospel Center New Life Program – (209) 466-2138</li>
+        <li>Stockton VA Substance Abuse Treatment – (209) 946-3400</li>
+        <li>San Joaquin Recovery Services – 620 N. Aurora St – (209) 461-5100</li>
+      </ul>
+    </section>
+
+    <section id="medical-centers" class="card tab-content">
+      <h2>Medical Centers</h2>
+      <ul>
+        <li>CMC Stockton Channel – 701 E. Channel St – (209) 944-4700</li>
+        <li>Gleason House Medical Clinic – 423 S. San Joaquin St – (209) 954-7700</li>
+        <li>St. Mary's Interfaith – 545 W. Sonora St – (209) 467-0703</li>
+      </ul>
+    </section>
+
+    <section class="ai-helper">
+      <h3>Ask weConnect Helper</h3>
+      <input type="text" id="userInput" placeholder="Type your question here..." />
+      <button onclick="respond()">Ask</button>
+      <p id="aiResponse"></p>
+    </section>
+  </main>
+
+  <footer>
+    <button id="donate-button">Donate to Local Nonprofits</button>
+  </footer>
+
+  <script>
+    function openTab(id) {
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabContents.forEach(tab => tab.classList.remove('active'));
+
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+
+  <script src="script.js"></script>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+

@@ -68,13 +68,5 @@ nav button.active {
   transform: translateY(-2px);
 }
 
-/* Adjust Scale Size */
-.logo {
-  height: 60px;
-  object-fit: contain;
-  margin: 10px auto;
-  display: block;
-}
-
 
 
